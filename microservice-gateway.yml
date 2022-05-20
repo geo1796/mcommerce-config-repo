@@ -20,7 +20,7 @@ spring:
 
 eureka:
   client:
-    registerWithEureka: false
+    registerWithEureka: true
     serviceUrl:
       defaultZone: ${EUREKA_SERVER:http://localhost:9102/eureka/}
     healthcheck:
