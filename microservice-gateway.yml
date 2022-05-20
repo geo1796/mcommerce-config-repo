@@ -22,7 +22,7 @@ eureka:
   client:
     registerWithEureka: false
     serviceUrl:
-      defaultZone: ${EUREKA_SERVER:http://localhost:9102/eureka}
+      defaultZone: ${EUREKA_SERVER:http://localhost:9102/eureka/}
     healthcheck:
       enabled: true
 
