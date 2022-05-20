@@ -1,0 +1,37 @@
+server:
+  port: 8760
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: produits
+          uri: lb://microservice-produits
+          predicates:
+            - Path=/**
+          filters:
+            - StripPrefix=1
+        - id: eureka
+          uri: lb://eureka-server
+          predicates:
+            - Path=/**
+
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:9102/eureka}
+    healthcheck:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - mappings
+          - env
+          - health
+          - info
