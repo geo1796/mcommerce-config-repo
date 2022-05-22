@@ -10,18 +10,18 @@ spring:
         - id: jwt
           uri: lb://microservice-jwt
           predicates:
-             - Path=/**
+             - Path=/jwt
           filters:
             - StripPrefix=1
             - JwtAuthenticationFilter
         - id: eureka
           uri: lb://eureka-server
           predicates:
-            - Path=/**
+            - Path=/eureka
         - id: produit
           uri: lb://microservice-produits
           predicates:
-            - Path=/**
+            - Path=/produits
           filters:
             - StripPrefix=1
             - JwtAuthenticationFilter
