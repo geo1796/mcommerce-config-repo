@@ -1,6 +1,7 @@
 server:
   port: 8760
 
+spring:
   application:
     name: microservice-gateway
   cloud:
@@ -12,15 +13,6 @@ server:
             - Path=/**
           filters:
             - StripPrefix=1
-            - JwtAuthenticationFilter
-
-        - id: produits
-            uri: lb://microservice-produits
-            predicates:
-              - Path=/**
-            filters:
-              - StripPrefix=1
-              - JwtAuthenticationFilter
 
         - id: eureka
           uri: lb://eureka-server
