@@ -12,6 +12,16 @@ server:
             - Path=/**
           filters:
             - StripPrefix=1
+            - JwtAuthenticationFilter
+
+        - id: produits
+            uri: lb://microservice-produits
+            predicates:
+              - Path=/**
+            filters:
+              - StripPrefix=1
+              - JwtAuthenticationFilter
+
         - id: eureka
           uri: lb://eureka-server
           predicates:
