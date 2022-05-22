@@ -13,7 +13,6 @@ spring:
              - Path=/microservice-jwt/**
           filters:
             - StripPrefix=1
-            - JwtAuthenticationFilter
         - id: eureka-server
           uri: lb://eureka-server
           predicates:
@@ -24,7 +23,6 @@ spring:
             - Path=/microservice-produits/**
           filters:
             - StripPrefix=1
-            - JwtAuthenticationFilter
 
 eureka:
   client:
