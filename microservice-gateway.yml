@@ -7,21 +7,21 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: jwt
+        - id: microservice-jwt
           uri: lb://microservice-jwt
           predicates:
-             - Path=/jwt
+             - Path=/microservice-jwt/**
           filters:
             - StripPrefix=1
             - JwtAuthenticationFilter
-        - id: eureka
+        - id: eureka-server
           uri: lb://eureka-server
           predicates:
-            - Path=/eureka
-        - id: produit
+            - Path=/eureka-server/**
+        - id: microservice-produits
           uri: lb://microservice-produits
           predicates:
-            - Path=/produits
+            - Path=/microservice-produits/**
           filters:
             - StripPrefix=1
             - JwtAuthenticationFilter
