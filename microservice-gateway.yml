@@ -7,13 +7,6 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: produits
-          uri: lb://microservice-produits
-          predicates:
-            - Path=/**
-          filters:
-            - StripPrefix=1
-            - JwtAuthenticationFilter
         - id: jwt
           uri: lb://microservice-jwt
           predicates:
